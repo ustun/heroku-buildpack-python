@@ -164,35 +164,35 @@ fi
 
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
-# /app/.heroku/python/bin/pip install --use-mirrors -r requirements14.txt --exists-action=w --src=./.heroku/src | cleanup | indent
+/app/.heroku/python/bin/pip install --use-mirrors -r requirements14.txt --exists-action=w --src=./.heroku/src | cleanup | indent
 
-# # Django collectstatic support.
-# source $BIN_DIR/steps/collectstatic
+# Django collectstatic support.
+source $BIN_DIR/steps/collectstatic
 
-# # ### Finalize
-# #
+# ### Finalize
+#
 
-# # Set context environment variables.
-# set-env PATH '$HOME/.heroku/python/bin:$PATH'
-# set-env PYTHONUNBUFFERED true
-# set-env PYTHONHOME /app/.heroku/python
-# set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
-# set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib
-# set-default-env LANG en_US.UTF-8
-# set-default-env PYTHONHASHSEED random
-# set-default-env PYTHONPATH /app/
+# Set context environment variables.
+set-env PATH '$HOME/.heroku/python/bin:$PATH'
+set-env PYTHONUNBUFFERED true
+set-env PYTHONHOME /app/.heroku/python
+set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
+set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib
+set-default-env LANG en_US.UTF-8
+set-default-env PYTHONHASHSEED random
+set-default-env PYTHONPATH /app/
 
 
-# # Experimental post_compile hook.
-# source $BIN_DIR/steps/hooks/post_compile
+# Experimental post_compile hook.
+source $BIN_DIR/steps/hooks/post_compile
 
-# # Store new artifacts in cache.
-# for dir in $CACHED_DIRS; do
-#   rm -rf $CACHE_DIR/$dir
-#   cp -R $dir $CACHE_DIR/
-# done
+# Store new artifacts in cache.
+for dir in $CACHED_DIRS; do
+  rm -rf $CACHE_DIR/$dir
+  cp -R $dir $CACHE_DIR/
+done
 
-# # ### Fin.
+# ### Fin.
 
-# deep-mv $BUILD_DIR $ORIG_BUILD_DIR
-# deep-mv $TMP_APP_DIR $APP_DIR
+deep-mv $BUILD_DIR $ORIG_BUILD_DIR
+deep-mv $TMP_APP_DIR $APP_DIR
