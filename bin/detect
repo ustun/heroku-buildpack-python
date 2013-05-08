@@ -15,9 +15,10 @@
 BUILD_DIR=$1/sellercrowd
 
 # Exit early if app is clearly not Python.
-echo "Deteting the app"
+# echo "Deteting the app"
+echo Python
 if [ ! -f $BUILD_DIR/../requirements14.txt ] && [ ! -f $BUILD_DIR/setup.py ]; then
-  exit 1
+  # exit 1
 fi
 
-echo Python
+# echo Python
