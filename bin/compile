@@ -167,7 +167,9 @@ puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 /app/.heroku/python/bin/pip install --use-mirrors -r requirements14.txt --exists-action=w --src=./.heroku/src | cleanup | indent
 
 # Django collectstatic support.
-source $BIN_DIR/steps/collectstatic
+#source $BIN_DIR/steps/collectstatic
+
+puts-step "after collectstatic"
 
 # ### Finalize
 #
@@ -184,7 +186,11 @@ set-default-env PYTHONPATH /app/
 
 
 # Experimental post_compile hook.
+puts-step "before postcompile"
+
 source $BIN_DIR/steps/hooks/post_compile
+puts-step "after postcompile"
+
 
 # Store new artifacts in cache.
 for dir in $CACHED_DIRS; do
