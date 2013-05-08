@@ -55,7 +55,7 @@ ORIG_BUILD_DIR=$BUILD_DIR
 BUILD_DIR=$APP_DIR
 
 # Link the local settings file
-#ln -sf $APP_DIR/custom_settings/ustun_heroku_settings.py settings_local.py
+ln -sf $APP_DIR/sellercrowd/custom_settings/ustun_heroku_settings.py $APP_DIR/sellercrowd/settings_local.py
 
 # Prepend proper path buildpack use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
