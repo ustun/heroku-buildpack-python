@@ -73,7 +73,7 @@ source $BIN_DIR/steps/hooks/pre_compile
 # If no requirements given, assume `setup.py develop`.
 if [ ! -f requirements14.txt ]; then
   puts-step "No requirements.txt provided; assuming dist package."
-  echo "-e ." > requirements.txt
+  echo "-e ." > requirements14.txt
 fi
 
 # If no runtime given, assume default version.
@@ -158,7 +158,7 @@ hash -r
 source $BIN_DIR/steps/pylibmc
 
 # Install Mercurial if it appears to be required.
-if (grep -Fiq "hg+" requirements.txt) then
+if (grep -Fiq "hg+" requirements14.txt) then
   /app/.heroku/python/bin/pip install --use-mirrors mercurial | cleanup | indent
 fi
 
