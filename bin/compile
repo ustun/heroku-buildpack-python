@@ -14,7 +14,7 @@ export PATH=:/usr/local/bin:$PATH
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
-BUILD_DIR=$1
+BUILD_DIR=$1/sellercrowd
 CACHE_DIR=$2
 
 CACHED_DIRS=".heroku"
