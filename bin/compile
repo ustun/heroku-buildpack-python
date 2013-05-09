@@ -56,7 +56,7 @@ BUILD_DIR=$APP_DIR
 
 # Link the local settings file
 ln -sf $APP_DIR/sellercrowd/custom_settings/ustun_heroku_settings.py $APP_DIR/sellercrowd/settings_local.py
-
+(cd $APP_DIR/sellercrowd/scsite; ln -sn locale_sc locale)
 # Prepend proper path buildpack use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$PATH
 export PYTHONUNBUFFERED=1
